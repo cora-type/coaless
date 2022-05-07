@@ -1,8 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
 import re
+import praw
 
-query = ' shampoo for oily hair' #input goes here
+query = ' best shampoo' #input goes here
 
 search = query.replace(' ', '+')
 results = 10
