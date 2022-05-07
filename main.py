@@ -20,19 +20,19 @@ def link_scraper(t):
             if len(title) > 0:
                 a.append(link.get('href').split("?q=")[1].split("&sa=U")[0])
     
-    print(a)
+    print (reddit_method(a))
 
-def reddit_method(links):    
+def reddit_method(links): #should return a list of objects
+    comments_list = []
     reddit = praw.Reddit(client_id ='zkx-1C4UeAGQrvd-UDC92g',
                     client_secret ='aDpjcO0AUzDpEqfa1zoJvMxQI72Bvg',
                     user_agent ='redview.com by /u/redview_script',)
-    
-    submission = reddit.submission(url=links)
-    comments = submission.comments
-    for comment in comments: #returns a comment object
-        print(comment.body) 
-        print(comment.author)
-        print('\n')
+    for link in links:
+        submission = reddit.submission(url=link)
+        comments = submission.comments
+        for _, comment in zip(range(5), comments):
+            comments_list.append(comment)
+    return comments_list #return a list of all comment objects
 
-print(reddit_method('https://www.reddit.com/r/VacuumCleaners/comments/nfurvt/the_recommended_vacuums_list_has_been_upgraded_to/'))
+print(link_scraper('best shampoo'))
 
