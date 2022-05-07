@@ -1,7 +1,5 @@
-import requests
 from bs4 import BeautifulSoup
-import re
-import praw
+import praw, json, re, requests
 
 def link_scraper(t):
     query = t
@@ -27,11 +25,14 @@ def link_scraper(t):
 def reddit_method(links):    
     reddit = praw.Reddit(client_id ='zkx-1C4UeAGQrvd-UDC92g',
                     client_secret ='aDpjcO0AUzDpEqfa1zoJvMxQI72Bvg',
-                    user_agent ='redview.com by /u/redview_script',
-                    username ='redview_script',
-                    password ='redview_password')
+                    user_agent ='redview.com by /u/redview_script',)
     
-    # submission = reddit.submission()
+    submission = reddit.submission(url=links)
+    comments = submission.comments
+    for comment in comments: #returns a comment object
+        print(comment.body) 
+        print(comment.author)
+        print('\n')
 
-print(link_scraper('best shampoo'))
+print(reddit_method('https://www.reddit.com/r/VacuumCleaners/comments/nfurvt/the_recommended_vacuums_list_has_been_upgraded_to/'))
 
