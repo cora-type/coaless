@@ -18,21 +18,21 @@ def link_scraper(t):
         if "url?q=" in link_href and not "webcache" in link_href:
             title = link.find_all('h3')
             if len(title) > 0:
-                a.append(link.get('href').split("?q=")[1].split("&sa=U")[0])
+                a += reddit_method(link.get('href').split("?q=")[1].split("&sa=U")[0])
     
-    print (reddit_method(a))
+    print (a)
 
-def reddit_method(links): #should return a list of objects
+def reddit_method(link): #should return a list of objects
     comments_list = []
     reddit = praw.Reddit(client_id ='zkx-1C4UeAGQrvd-UDC92g',
                     client_secret ='aDpjcO0AUzDpEqfa1zoJvMxQI72Bvg',
                     user_agent ='redview.com by /u/redview_script',)
-    for link in links:
-        submission = reddit.submission(url=link)
-        comments = submission.comments
-        for _, comment in zip(range(5), comments):
-            comments_list.append(comment)
+
+    submission = reddit.submission(url=link)
+    comments = submission.comments
+    for _, comment in zip(range(5), comments):
+        comments_list.append(comment)
+    
     return comments_list #return a list of all comment objects
 
 print(link_scraper('best shampoo'))
-
