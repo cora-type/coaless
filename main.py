@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import praw, json, re, requests
 
+#grabs top 10 links from search query(t) and returns JSON
 def link_scraper(t):
     query = t
 
@@ -12,6 +13,7 @@ def link_scraper(t):
     soup_link = BeautifulSoup(requests_results.content, "html.parser")
     links = soup_link.find_all("a")
 
+    #scrapes the reddit URL's from google search results and appends to list a
     a = []
     for link in links:
         link_href = link.get('href')
@@ -19,6 +21,7 @@ def link_scraper(t):
             title = link.find_all('h3')
             if len(title) > 0:
                 a += reddit_method(link.get('href').split("?q=")[1].split("&sa=U")[0])
+    #create a dictionary for each comment containing crucial attributes, pass as JSON to Node.js backend
     postlist = []
     for comment in a:
         post = {} # put this here
@@ -31,6 +34,8 @@ def link_scraper(t):
 
     jsonStr = json.dumps(postlist)
     print (jsonStr)
+
+
 def reddit_method(link): #should return a list of objects
     comments_list = []
     reddit = praw.Reddit(client_id ='zkx-1C4UeAGQrvd-UDC92g',
