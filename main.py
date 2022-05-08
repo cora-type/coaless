@@ -19,9 +19,18 @@ def link_scraper(t):
             title = link.find_all('h3')
             if len(title) > 0:
                 a += reddit_method(link.get('href').split("?q=")[1].split("&sa=U")[0])
-    
-    print (a)
+    postlist = []
+    for comment in a:
+        post = {} # put this here
+        post['Author'] = str(comment.author)
+        post['Comment'] = comment.body_html
+        post['Score'] = comment.score
+        post['Post'] = comment.link_id
+        post['Permalink'] = comment.permalink
+        postlist.append(post)
 
+    jsonStr = json.dumps(postlist)
+    print (jsonStr)
 def reddit_method(link): #should return a list of objects
     comments_list = []
     reddit = praw.Reddit(client_id ='zkx-1C4UeAGQrvd-UDC92g',
