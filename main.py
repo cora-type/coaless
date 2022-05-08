@@ -21,6 +21,7 @@ def link_scraper(t):
             title = link.find_all('h3')
             if len(title) > 0:
                 a += reddit_method(link.get('href').split("?q=")[1].split("&sa=U")[0])
+                
     #create a dictionary for each comment containing crucial attributes, pass as JSON to Node.js backend
     postlist = []
     for comment in a:
