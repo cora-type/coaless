@@ -18,13 +18,11 @@ async function arraysum() {
   };
 
   var sendrequest = await request(options)
-    // The parsedBody contains the data
-    // sent back from the Flask server
+    // The parsedBody contains the data sent back from the Flask server
     .then(function (parsedBody) {
       console.log(parsedBody);
 
-      // You can do something with
-      // returned data
+      // do something with returned data
       let result;
       result = parsedBody["result"];
       console.log("Result from Python ", result);

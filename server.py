@@ -9,7 +9,6 @@ app = Flask(__name__)
 @app.route('/lookup', methods = ['POST'])
 def search():
 	data = request.get_json()
-	print(data)
 	# Data variable contains the
 	# data from the node server
 	result = main.link_scraper(data) # calculate the sum

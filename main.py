@@ -27,7 +27,7 @@ def link_scraper(t):
     for comment in a:
         post = {} # put this here
         post['Author'] = str(comment.author)
-        post['Comment'] = comment.body_html
+        post['Comment'] = comment.body
         post['Score'] = comment.score
         post['Post'] = comment.link_id
         post['Permalink'] = comment.permalink
@@ -45,8 +45,10 @@ def reddit_method(link): #should return a list of objects
 
     submission = reddit.submission(url=link)
     comments = submission.comments
+    
     for _, comment in zip(range(5), comments):
-        comments_list.append(comment)
+        if comment.author != 'AutoModerator':
+            comments_list.append(comment)
     
     return comments_list #return a list of all comment objects
 
