@@ -20,11 +20,12 @@ async function arraysum() {
   var sendrequest = await request(options)
     // The parsedBody contains the data sent back from the Flask server
     .then(function (parsedBody) {
-      console.log(parsedBody);
+      // console.log(parsedBody);
 
       // do something with returned data
       let result;
       result = parsedBody["result"];
+      result.sort((a, b) => b.Score - a.Score);
       console.log("Result from Python ", result);
     })
     .catch(function (err) {

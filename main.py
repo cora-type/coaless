@@ -47,7 +47,11 @@ def reddit_method(link): #should return a list of objects
     comments = submission.comments
     
     for _, comment in zip(range(5), comments):
-        if comment.author != 'AutoModerator':
+        if comment.author == 'AutoModerator':
+            pass
+        elif comment.body == '[deleted]':
+            pass
+        else:
             comments_list.append(comment)
     
     return comments_list #return a list of all comment objects
