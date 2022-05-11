@@ -1,11 +1,14 @@
-import main, json
+import server.main as main, json
 from flask import Flask, request
 
 # Setup flask server
 app = Flask(__name__)
 
-# Setup url route which will calculate
-# total sum of array.
+@app.route('/')
+def home():
+	return "Flask heroku app"
+
+# Setup url route which will grab POST request from HTML input
 @app.route('/lookup', methods = ['POST'])
 def search():
 	data = request.get_json()
