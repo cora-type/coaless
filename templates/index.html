@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="{{url_for('static', filename='script.js')}}"></script>
+    <script src="{{url_for('static', filename='scripts.js')}}" defer></script>
+    <script src="{{ url_for('static', filename='jquery-3.6.0.min.js') }}"></script>
     <link
       rel="stylesheet"
       href="{{url_for('static', filename='styles.css')}}"
@@ -13,13 +14,14 @@
   </head>
   <body>
     <div class="logo">redview</div>
-    <div class="searchbar">search bar</div>
-    <form action="" method="post">
-      <input type="submit" name="upvote" value="Upvote" />
-    </form>
+    <div class="searchbar">
+      <!-- <form action="{{ url_for('search') }}" method="POST"> -->
+      <input type="text" id="search-query" name="search-query" />
+      <input id="submit" type="submit" value="Submit" />
+    </div>
 
     <div class="results-container">
-      <div class="card">hello</div>
+      <div class="card">yeet</div>
       <div class="card">hello</div>
     </div>
   </body>
