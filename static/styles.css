@@ -34,4 +34,10 @@ body {
 
 .results-container {
   grid-area: 1/2/4/3;
+  overflow: auto;
+}
+
+fieldset {
+  width: inherit;
+  border-radius: 1rem;
 }
