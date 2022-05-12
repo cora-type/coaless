@@ -10,8 +10,17 @@ $("#submit").click(function () {
     },
     success: function (response) {
       data = JSON.parse(response);
+      update();
     },
   });
 });
 
-let update = () => {};
+const container = document.querySelector(".results-container");
+let update = () => {
+  data.forEach((element) => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+    card.textContent = element.Comment;
+    container.appendChild(card);
+  });
+};
