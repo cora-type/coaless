@@ -8,7 +8,10 @@
     <script src="{{ url_for('static', filename='jquery-3.6.0.min.js') }}"></script>
     <script src="{{ url_for('static', filename='node_modules/vivus/src/vivus.js')}}"></script>
     <script src="{{ url_for('static', filename='node_modules/vivus/src/pathformer.js')}}"></script>
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <link
       rel="stylesheet"
       href="{{url_for('static', filename='styles.css')}}"
@@ -16,8 +19,7 @@
     <title>redview</title>
   </head>
   <body>
-    <div class="header">"whats the best mattress'"</div>
-    <div class="logo">
+    <div class="logo animate__animated animate__zoomIn">
       <!-- SVG Library -->
       <svg
         id="logo-svg"
@@ -73,6 +75,9 @@
       </button>
     </div>
 
+    <div class="header animate__animated animate__fadeIn">
+      'whats the best mattress'
+    </div>
     <div class="results-container">
       <div class="card">
         <div class="comment">

@@ -4,26 +4,8 @@ const container = document.querySelector(".results-container");
 const header = document.querySelector(".header");
 
 let sendData = () => {
+  animateCSS(".card", "fadeOut");
   $.ajax({
-    xhr: function () {
-      var xhr = new window.XMLHttpRequest();
-      var progressBar = $("#progress");
-      //Upload progress
-      xhr.upload.addEventListener(
-        "progress",
-        function (evt) {
-          if (evt.lengthComputable) {
-            var percentComplete = (evt.loaded / evt.total) * 100;
-            percentComplete = Math.floor(percentComplete);
-            console.log(percentComplete);
-            progressBar.css("width", percentComplete + "%");
-            progressBar.html(percentComplete + "%");
-          }
-        },
-        false
-      );
-      return xhr;
-    },
     type: "POST",
     url: "/search", // url to the function
     data: {
@@ -61,11 +43,11 @@ let update = () => {
     </div               
   </div>
   `;
-
     container.innerHTML += content;
   });
 };
 
+//removes results if they already exist
 let removeCards = () => {
   const cards = document.querySelectorAll(".card");
   cards.forEach((card) => {
@@ -73,8 +55,31 @@ let removeCards = () => {
   });
 };
 
+//animates the SVG logo
 new Vivus("logo-svg", {
   type: "sync",
   duration: 500,
   animTimingFunction: Vivus.EASE,
+});
+
+const animateCSS = (element, animation, prefix = "animate__") =>
+  // We create a Promise and return it
+  new Promise((resolve, reject) => {
+    const animationName = `${prefix}${animation}`;
+    const node = document.querySelector(element);
+
+    node.classList.add(`${prefix}animated`, animationName);
+
+    // When the animation ends, we clean the classes and resolve the Promise
+    function handleAnimationEnd(event) {
+      event.stopPropagation();
+      node.classList.remove(`${prefix}animated`, animationName);
+      resolve("Animation ended");
+    }
+
+    node.addEventListener("animationend", handleAnimationEnd, { once: true });
+  });
+
+window.addEventListener("load", function () {
+  animateCSS(".card", "fadeIn");
 });

@@ -21,7 +21,10 @@ body {
   display: flex;
   align-items: center;
   font-weight: bold;
+  font-style: italic;
   font-size: 25px;
+  animation: fadeIn;
+  animation-duration: 3s;
 }
 .logo {
   display: flex;
@@ -55,15 +58,17 @@ body {
   overflow: auto;
 }
 .metadata {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
 }
 
 .card {
   border-bottom: 0.1px solid lightgray;
   padding: 5px;
   margin: 6px;
+  /* /* animation: fadeIn; */
+  animation-duration: 3s;
 }
 .comment {
   padding-bottom: 5px;
