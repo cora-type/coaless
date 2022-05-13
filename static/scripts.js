@@ -36,6 +36,4 @@ let removeCards = () => {
   });
 };
 
-var $svg = $("yeet").drawsvg();
-
-$svg.drawsvg("animate");
+new Vivus("logo-svg", { type: "sync", duration: 500 });
