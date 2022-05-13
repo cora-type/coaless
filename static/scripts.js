@@ -1,7 +1,8 @@
 let data;
+let searchBar = document.getElementById("search-query");
+const container = document.querySelector(".results-container");
 
-$("#submit").click(function () {
-  // make ajax request on btn click
+let sendData = () => {
   $.ajax({
     type: "POST",
     url: "/search", // url to the function
@@ -14,18 +15,33 @@ $("#submit").click(function () {
       update();
     },
   });
+};
+
+$(".cta").click(sendData);
+
+searchBar.addEventListener("keyup", function (e) {
+  if (e.key === "Enter") {
+    sendData();
+  }
 });
 
-const container = document.querySelector(".results-container");
 let update = () => {
   if (container.hasChildNodes) {
     removeCards();
   }
   data.forEach((element) => {
-    const card = document.createElement("div");
-    card.classList.add("card");
-    card.textContent = element.Comment;
-    container.appendChild(card);
+    let content = `
+  <div class="card">
+    <div class="comment">${element.Comment}</div>
+    <div class="metadata">
+      <div class="permalink"> <a href="reddit.com${element.Permalink}">link</a></div>
+      <div class="score">${element.Score} points</div>
+      <div class="author">by u/${element.Author}</div>
+    </div               
+  </div>
+  `;
+
+    container.innerText += content;
   });
 };
 
@@ -36,4 +52,8 @@ let removeCards = () => {
   });
 };
 
-new Vivus("logo-svg", { type: "sync", duration: 500 });
+new Vivus("logo-svg", {
+  type: "sync",
+  duration: 500,
+  animTimingFunction: Vivus.EASE,
+});
