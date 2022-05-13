@@ -35,3 +35,7 @@ let removeCards = () => {
     card.remove();
   });
 };
+
+var $svg = $("yeet").drawsvg();
+
+$svg.drawsvg("animate");

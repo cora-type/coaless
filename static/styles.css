@@ -3,7 +3,7 @@
   padding: 0;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 body {
@@ -40,4 +40,10 @@ body {
 fieldset {
   width: inherit;
   border-radius: 1rem;
+}
+.st0 {
+  fill: #b51f30;
+}
+#yeet {
+  width: 4090px;
 }
