@@ -6,9 +6,10 @@ $("#submit").click(function () {
     type: "POST",
     url: "/search", // url to the function
     data: {
-      name: $("#search-query").val(), // value of the form
+      name: $("#search-query").val(), // value of the input text
     },
     success: function (response) {
+      // do something with the PRAW response
       data = JSON.parse(response);
       update();
     },
@@ -17,10 +18,20 @@ $("#submit").click(function () {
 
 const container = document.querySelector(".results-container");
 let update = () => {
+  if (container.hasChildNodes) {
+    removeCards();
+  }
   data.forEach((element) => {
     const card = document.createElement("div");
     card.classList.add("card");
     card.textContent = element.Comment;
     container.appendChild(card);
+  });
+};
+
+let removeCards = () => {
+  const cards = document.querySelectorAll(".card");
+  cards.forEach((card) => {
+    card.remove();
   });
 };
