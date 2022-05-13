@@ -3,7 +3,6 @@
   padding: 0;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  border: 1px solid black;
 }
 
 input:focus {
@@ -13,10 +12,17 @@ input:focus {
 body {
   display: grid;
   grid-template-columns: 700px 1fr 200px;
-  grid-template-rows: 100px 300px 1fr;
+  grid-template-rows: 30px 300px 1fr;
   height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
-
+.header {
+  grid-area: 1/2/2/3;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 25px;
+}
 .logo {
   display: flex;
   align-items: flex-end;
@@ -31,7 +37,7 @@ body {
   padding-top: 20px;
 }
 #search-query {
-  height: 20px;
+  height: 30px;
   width: 50%;
   /* visibility: hidden; */
   border: none;
@@ -45,7 +51,7 @@ body {
 }
 
 .results-container {
-  grid-area: 1/2/4/3;
+  grid-area: 2/2/4/3;
   overflow: auto;
 }
 .metadata {
@@ -55,7 +61,33 @@ body {
 }
 
 .card {
-  border: 1px solid;
+  border-bottom: 0.1px solid lightgray;
+  padding: 5px;
+  margin: 6px;
+}
+.comment {
+  padding-bottom: 5px;
+}
+.link {
+  color: #b51f30;
+}
+.score {
+  color: #e09c1c;
+}
+.author {
+  color: rgba(69, 69, 69, 0.83);
+}
+
+a {
+  color: rgb(61, 93, 60);
+  text-decoration: none;
+}
+.progress {
+  grid-area: 1/1/2/2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 50px;
 }
 
 /* From uiverse.io by @alexmaracinaru */

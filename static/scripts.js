@@ -1,9 +1,29 @@
 let data;
 let searchBar = document.getElementById("search-query");
 const container = document.querySelector(".results-container");
+const header = document.querySelector(".header");
 
 let sendData = () => {
   $.ajax({
+    xhr: function () {
+      var xhr = new window.XMLHttpRequest();
+      var progressBar = $("#progress");
+      //Upload progress
+      xhr.upload.addEventListener(
+        "progress",
+        function (evt) {
+          if (evt.lengthComputable) {
+            var percentComplete = (evt.loaded / evt.total) * 100;
+            percentComplete = Math.floor(percentComplete);
+            console.log(percentComplete);
+            progressBar.css("width", percentComplete + "%");
+            progressBar.html(percentComplete + "%");
+          }
+        },
+        false
+      );
+      return xhr;
+    },
     type: "POST",
     url: "/search", // url to the function
     data: {
@@ -12,6 +32,7 @@ let sendData = () => {
     success: function (response) {
       // do something with the PRAW response
       data = JSON.parse(response);
+      header.innerText = searchBar.value;
       update();
     },
   });
@@ -34,14 +55,14 @@ let update = () => {
   <div class="card">
     <div class="comment">${element.Comment}</div>
     <div class="metadata">
-      <div class="permalink"> <a href="reddit.com${element.Permalink}">link</a></div>
-      <div class="score">${element.Score} points</div>
+      <div class="permalink"> <a href="reddit.com${element.Permalink}" target="_blank" rel="noopener noreferrer">source</a></div>
+      <div class="score">${element.Score}</div>
       <div class="author">by u/${element.Author}</div>
     </div               
   </div>
   `;
 
-    container.innerText += content;
+    container.innerHTML += content;
   });
 };
 
