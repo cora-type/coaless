@@ -2,8 +2,10 @@ let data;
 let searchBar = document.getElementById("search-query");
 const container = document.querySelector(".results-container");
 const header = document.querySelector(".header");
+const ripple = document.querySelector(".lds-ripple");
 
 let sendData = () => {
+  ripple.style.visibility = "visible";
   $.ajax({
     type: "POST",
     url: "/search", // url to the function
@@ -12,6 +14,7 @@ let sendData = () => {
     },
     success: function (response) {
       // do something with the PRAW response
+      ripple.style.visibility = "hidden";
       data = JSON.parse(response);
       data.sort((a, b) => b.Score - a.Score);
       header.innerText = searchBar.value;
@@ -20,6 +23,7 @@ let sendData = () => {
   });
 };
 
+// on click or enter, send post request to server
 $(".cta").click(sendData);
 
 searchBar.addEventListener("keyup", function (e) {
