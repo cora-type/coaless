@@ -37,7 +37,7 @@ def link_scraper(t):
         post['Post'] = comment.submission.title #title from submission object within the comment object
         post['Permalink'] = comment.permalink #link to comment
         postlist.append(post)
-    return postlist
+    print (postlist)
     # print(a)
 
 
@@ -60,4 +60,4 @@ def reddit_method(link): #should return a list of objects
     
     return comments_list #return a list of all comment objects
 
-# print(link_scraper('whats the best mattress'))
+print(link_scraper('whats the best mattress'))

@@ -58,9 +58,10 @@ body {
   overflow: auto;
 }
 .metadata {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-style: italic;
 }
 
 .card {
@@ -70,17 +71,10 @@ body {
   /* /* animation: fadeIn; */
   animation-duration: 3s;
 }
-.comment {
-  padding-bottom: 5px;
-}
-.link {
-  color: #b51f30;
-}
-.score {
+span {
   color: #e09c1c;
-}
-.author {
-  color: rgba(69, 69, 69, 0.83);
+  font-size: 18px;
+  font-weight: bold;
 }
 
 a {
