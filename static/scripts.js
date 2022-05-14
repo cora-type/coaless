@@ -4,7 +4,6 @@ const container = document.querySelector(".results-container");
 const header = document.querySelector(".header");
 
 let sendData = () => {
-  animateCSS(".card", "fadeOut");
   $.ajax({
     type: "POST",
     url: "/search", // url to the function

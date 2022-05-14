@@ -1,3 +1,4 @@
+from types import new_class
 from bs4 import BeautifulSoup
 import praw, json, re, requests
 
@@ -5,7 +6,7 @@ import praw, json, re, requests
 def link_scraper(t):
     query = t
 
-    search = query.replace('', '+')
+    search = query.replace(' ', '+')
     results = 10
     url = (f"https://www.google.com/search?q=site:reddit.com+{search}&num={results}")
 
@@ -20,7 +21,11 @@ def link_scraper(t):
         if "url?q=" in link_href and not "webcache" in link_href:
             title = link.find_all('h3')
             if len(title) > 0:
-                a += reddit_method(link.get('href').split("?q=")[1].split("&sa=U")[0])
+                try:
+                    a+=reddit_method(link.get('href').split("?q=")[1].split("&sa=U")[0])
+                except:
+                    print('got an error')
+                    continue
                 
     #create a dictionary for each comment containing crucial attributes, pass as JSON to Node.js backend
     postlist = []
@@ -33,8 +38,7 @@ def link_scraper(t):
         post['Permalink'] = comment.permalink
         postlist.append(post)
     return postlist
-    # jsonStr = json.dumps(postlist)
-    # print (jsonStr)
+    # print(a)
 
 
 def reddit_method(link): #should return a list of objects
@@ -49,11 +53,11 @@ def reddit_method(link): #should return a list of objects
     for _, comment in zip(range(5), comments):
         if comment.author == 'AutoModerator':
             pass
-        elif comment.body == '[deleted]':
+        elif comment.body == '[deleted]' or comment.body =='[removed]':
             pass
         else:
             comments_list.append(comment)
     
     return comments_list #return a list of all comment objects
 
-# print(link_scraper('best shampoo'))
+# print(link_scraper('whats the best mattress'))
