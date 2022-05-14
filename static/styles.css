@@ -12,7 +12,7 @@ input:focus {
 body {
   display: grid;
   grid-template-columns: 700px 1fr 200px;
-  grid-template-rows: 30px 300px 1fr;
+  grid-template-rows: 30px 300px 1fr 30px;
   height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
@@ -69,7 +69,7 @@ body {
   /* /* animation: fadeIn; */
   animation-duration: 3s;
 }
-span {
+.pointer {
   color: #e09c1c;
   font-size: 18px;
   font-weight: bold;
@@ -91,6 +91,12 @@ a:hover {
   padding-right: 50px;
 }
 
+.footer {
+  display: flex;
+  align-items: center;
+  padding-left: 25px;
+  grid-area: 4/1/5/4;
+}
 /* From uiverse.io by @alexmaracinaru */
 .cta {
   border: none;
