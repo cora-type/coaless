@@ -32,7 +32,7 @@ def link_scraper(t):
     for comment in a:
         post = {} # put this here
         post['Author'] = str(comment.author) #parsable author string
-        post['Comment'] = comment.body #the actual comment
+        post['Comment'] = comment.body_html #the actual comment
         post['Score'] = comment.score #the score of the comment
         post['Post'] = comment.submission.title #title from submission object within the comment object
         post['Permalink'] = comment.permalink #link to comment
@@ -50,7 +50,7 @@ def reddit_method(link): #should return a list of objects
     submission = reddit.submission(url=link)
     comments = submission.comments
     
-    for _, comment in zip(range(5), comments):
+    for comment in comments:
         if comment.author == 'AutoModerator':
             pass
         elif comment.body == '[deleted]' or comment.body =='[removed]':
