@@ -41,7 +41,7 @@ let update = () => {
   <div class="card">
     <div class="comment">${element.Comment}</div>
     <div class="metadata">
-      <div class="data"><a href="https://www.reddit.com${element.Permalink}" target="_blank" rel="noopener noreferrer">by u/${element.Author} in '${element.Post}'</a><span>${element.Score}</span></div>
+      <div class="data"><a href="https://www.reddit.com${element.Permalink}" target="_blank" rel="noopener noreferrer">by u/${element.Author} in <u>'${element.Post}'</u> </a><span>${element.Score}</span></div>
     </div               
   </div>
   `;

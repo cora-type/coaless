@@ -21,7 +21,6 @@ body {
   display: flex;
   align-items: center;
   font-weight: bold;
-  font-style: italic;
   font-size: 25px;
   animation: fadeIn;
   animation-duration: 3s;
@@ -63,7 +62,6 @@ body {
   justify-content: flex-end;
   font-style: italic;
 }
-
 .card {
   border-bottom: 0.1px solid lightgray;
   padding: 5px;
@@ -80,6 +78,10 @@ span {
 a {
   color: rgb(61, 93, 60);
   text-decoration: none;
+}
+
+a:hover {
+  color: #e09c1c;
 }
 .progress {
   grid-area: 1/1/2/2;
