@@ -13,6 +13,7 @@ let sendData = () => {
     success: function (response) {
       // do something with the PRAW response
       data = JSON.parse(response);
+      data.sort((a, b) => b.Score - a.Score);
       header.innerText = searchBar.value;
       update();
     },
