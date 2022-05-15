@@ -5,22 +5,28 @@ const header = document.querySelector(".header");
 const ripple = document.querySelector(".lds-ripple");
 
 let sendData = () => {
-  ripple.style.visibility = "visible";
-  $.ajax({
-    type: "POST",
-    url: "/search", // url to the function
-    data: {
-      name: $("#search-query").val(), // value of the input text
-    },
-    success: function (response) {
-      // do something with the PRAW response
-      ripple.style.visibility = "hidden";
-      data = JSON.parse(response);
-      data.sort((a, b) => b.Score - a.Score);
-      header.innerText = searchBar.value;
-      update();
-    },
-  });
+  if (searchBar.value == "") {
+    alert(
+      "please enter something stop trying to break my very well maintained and absolutely not volatile code D:"
+    );
+  } else {
+    ripple.style.visibility = "visible";
+    $.ajax({
+      type: "POST",
+      url: "/search", // url to the function
+      data: {
+        name: $("#search-query").val(), // value of the input text
+      },
+      success: function (response) {
+        // do something with the PRAW response
+        ripple.style.visibility = "hidden";
+        data = JSON.parse(response);
+        data.sort((a, b) => b.Score - a.Score);
+        header.innerText = searchBar.value;
+        update();
+      },
+    });
+  }
 };
 
 // on click or enter, send post request to server
