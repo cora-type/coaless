@@ -1,4 +1,4 @@
-let data;
+let data; //store returned data here
 let searchBar = document.getElementById("search-query");
 const container = document.querySelector(".results-container");
 const header = document.querySelector(".header");
