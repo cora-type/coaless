@@ -22,7 +22,6 @@ let sendData = () => {
         ripple.style.visibility = "hidden";
         data = JSON.parse(response);
         data.sort((a, b) => b.Score - a.Score);
-        header.innerText = searchBar.value;
         update();
       },
     });
@@ -88,6 +87,6 @@ const animateCSS = (element, animation, prefix = "animate__") =>
     node.addEventListener("animationend", handleAnimationEnd, { once: true });
   });
 
-window.addEventListener("load", function () {
-  animateCSS(".card", "fadeIn");
-});
+// window.addEventListener("load", function () {
+//   animateCSS(".card", "fadeIn");
+// });
