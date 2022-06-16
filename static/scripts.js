@@ -37,10 +37,9 @@ searchBar.addEventListener("keyup", function (e) {
   }
 });
 
+//populates the app with the actual content
 let update = () => {
-  if (container.hasChildNodes) {
-    removeCards();
-  }
+  resetContent();
   data.forEach((element) => {
     let content = `
   <div class="card">
@@ -55,7 +54,7 @@ let update = () => {
 };
 
 //removes results if they already exist
-let removeCards = () => {
+let resetContent = () => {
   const cards = document.querySelectorAll(".card");
   cards.forEach((card) => {
     card.remove();
