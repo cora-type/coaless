@@ -44,9 +44,23 @@ def praw_comments(submission, dict, counter): #should return a list of objects
     post_object['Permalink'] = post.permalink #link to comment
 
     for comment in post.comments:
-        comments_list.append(comment)
+        comments_list.append(comment_creator(comment))
     post_object['Comments'] = comments_list
     dict[counter] = post_object #create dictionary k/v
 
+
+def comment_creator(comment):
+    obj = {}
+    if comment.author == 'AutoModerator':
+        pass
+    elif comment.body == '[deleted]' or comment.body =='[removed]':
+        pass
+    else:
+        obj['Author'] = str(comment.author)
+        obj['Comment'] = comment.body_html
+        obj['Score'] = comment.score
+        obj['Permalink'] = comment.permalink
+    
+    return obj
 
 print(link_scraper('whats the best vaccuum'))
