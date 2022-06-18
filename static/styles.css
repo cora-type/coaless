@@ -89,6 +89,10 @@ a:hover {
   grid-area: 4/1/5/4;
 }
 
+.logo-for {
+  font-weight: lighter;
+}
+
 /* From uiverse.io by @alexmaracinaru */
 .cta {
   border: none;
@@ -99,10 +103,10 @@ a:hover {
 .cta span {
   color: white;
   padding-bottom: 7px;
-  letter-spacing: 4px;
+  /* letter-spacing: 4px; */
   font-size: 10px;
-  padding-right: 15px;
-  text-transform: uppercase;
+  padding-right: 11px;
+  /* text-transform: uppercase; */
 }
 
 .cta svg {
@@ -195,7 +199,7 @@ a:hover {
 
 /* new cards */
 
-.episode {
+.post-container {
   display: grid;
   grid-template-columns: 1fr 3fr;
   position: relative;
@@ -244,7 +248,7 @@ p {
   margin: 0 0 13px 0;
 }
 
-.post-information {
+.post-info {
   font-weight: 100;
   color: lightgray;
   font-size: 12px;
@@ -258,4 +262,8 @@ p {
 
 .comment {
   display: grid;
+}
+
+::placeholder {
+  text-align: center;
 }

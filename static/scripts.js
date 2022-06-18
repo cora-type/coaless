@@ -22,7 +22,7 @@ let sendData = () => {
         ripple.style.visibility = "hidden";
         data = JSON.parse(response);
         data.sort((a, b) => b.Score - a.Score);
-        update();
+        postCreator();
       },
     });
   }
@@ -37,25 +37,50 @@ searchBar.addEventListener("keyup", function (e) {
   }
 });
 
-//populates the app with the actual content
-let update = () => {
-  resetContent();
-  data.forEach((element) => {
-    let content = `
-  <div class="card">
-    <div class="comment">${element.Comment}</div>
-    <div class="metadata">
-      <div class="data"><a href="https://www.reddit.com${element.Permalink}" target="_blank" rel="noopener noreferrer">by u/${element.Author} in <u>'${element.Post}'</u> </a><span class="pointer">${element.Score}</span></div>
-    </div               
-  </div>
-  `;
-    container.innerHTML += content;
-  });
+let update = (title, pAuthor, pDate, cBody, cScore, cDate) => {
+  let article = document.createElement("article");
+  article.classList.add("post-container");
+  container.appendChild(article);
+
+  let post = document.createElement("div");
+  post.classList.add("post");
+  article.appendChild(post);
+
+  let postTitle = document.createElement("div");
+  postTitle.classList.add("post-title");
+  let postInfo = document.createElement("div");
+  postInfo.classList.add("post-info");
+  post.append(postTitle, postInfo);
+
+  let postContent = document.createElement("div");
+  postContent.classList.add("post__content");
+  article.append(postContent);
+
+  let comments = document.createElement("div");
+  comments.classList.add("comments");
+  postContent.appendChild(comments);
+
+  let comment = document.createElement("div");
+  comment.classList.add("comment");
+  comments.appendChild(comment);
+
+  let commentBody = document.createElement("div");
+  commentBody.classList.add("comment-body");
+  let commentInfo = document.createElement("div");
+  commentInfo.classList.add("comment-info");
+  comment.append(commentBody, commentInfo);
+
+  postTitle.innerText = title;
+  postInfo.innerText = "by " + pAuthor + " , " + pDate;
+};
+
+let postCreator = () => {
+  console.log(Object.keys(data));
 };
 
 //removes results if they already exist
 let resetContent = () => {
-  const cards = document.querySelectorAll(".card");
+  const cards = document.querySelectorAll(".post-container");
   cards.forEach((card) => {
     card.remove();
   });
@@ -67,25 +92,3 @@ new Vivus("logo-svg", {
   duration: 500,
   animTimingFunction: Vivus.EASE,
 });
-
-const animateCSS = (element, animation, prefix = "animate__") =>
-  // We create a Promise and return it
-  new Promise((resolve, reject) => {
-    const animationName = `${prefix}${animation}`;
-    const node = document.querySelector(element);
-
-    node.classList.add(`${prefix}animated`, animationName);
-
-    // When the animation ends, we clean the classes and resolve the Promise
-    function handleAnimationEnd(event) {
-      event.stopPropagation();
-      node.classList.remove(`${prefix}animated`, animationName);
-      resolve("Animation ended");
-    }
-
-    node.addEventListener("animationend", handleAnimationEnd, { once: true });
-  });
-
-// window.addEventListener("load", function () {
-//   animateCSS(".card", "fadeIn");
-// });
