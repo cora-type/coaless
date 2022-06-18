@@ -21,7 +21,7 @@ let sendData = () => {
         // do something with the PRAW response
         ripple.style.visibility = "hidden";
         data = JSON.parse(response);
-        data.sort((a, b) => b.Score - a.Score);
+        // data.sort((a, b) => b.Score - a.Score);
         postCreator();
       },
     });
