@@ -264,7 +264,3 @@ p {
 .comment {
   display: grid;
 }
-
-::placeholder {
-  text-align: center;
-}
