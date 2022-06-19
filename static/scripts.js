@@ -37,7 +37,8 @@ searchBar.addEventListener("keyup", function (e) {
   }
 });
 
-let update = (title, postAuthor, commentList) => {
+// Creates the actual post that is appended to the display
+let update = (title, author, commentList) => {
   let article = document.createElement("article");
   article.classList.add("post-container");
   container.appendChild(article);
@@ -52,7 +53,7 @@ let update = (title, postAuthor, commentList) => {
 
   let postInfo = document.createElement("div");
   postInfo.classList.add("post-info");
-  postInfo.innerText = "by " + postAuthor + ", " + "3 months ago (date fns)";
+  postInfo.innerText = "by " + author + ", " + "3 months ago (date fns)";
   post.append(postTitle, postInfo);
 
   let postContent = document.createElement("div");
@@ -66,6 +67,7 @@ let update = (title, postAuthor, commentList) => {
   postContent.appendChild(comments);
 };
 
+// Go through a list of comments and create a comment element, append to post container
 let displayComments = (contain, comments) => {
   comments.forEach((comment) => {
     let commentContainer = document.createElement("div");
@@ -85,6 +87,7 @@ let displayComments = (contain, comments) => {
   });
 };
 
+// Creates posts for each key sent from PRAW
 let postCreator = () => {
   resetContent();
   Object.keys(data).forEach((key) => {
@@ -98,7 +101,7 @@ let postCreator = () => {
   });
 };
 
-//removes results if they already exist
+// Reset the display
 let resetContent = () => {
   const cards = document.querySelectorAll(".post-container");
   cards.forEach((card) => {
