@@ -37,7 +37,7 @@ searchBar.addEventListener("keyup", function (e) {
   }
 });
 
-let update = (title, pAuthor, pDate, cBody, cScore, cDate) => {
+let update = (title, postAuthor, commentList) => {
   let article = document.createElement("article");
   article.classList.add("post-container");
   container.appendChild(article);
@@ -48,8 +48,11 @@ let update = (title, pAuthor, pDate, cBody, cScore, cDate) => {
 
   let postTitle = document.createElement("div");
   postTitle.classList.add("post-title");
+  postTitle.innerText = title;
+
   let postInfo = document.createElement("div");
   postInfo.classList.add("post-info");
+  postInfo.innerText = "by " + postAuthor + ", " + "3 months ago (date fns)";
   post.append(postTitle, postInfo);
 
   let postContent = document.createElement("div");
@@ -58,24 +61,41 @@ let update = (title, pAuthor, pDate, cBody, cScore, cDate) => {
 
   let comments = document.createElement("div");
   comments.classList.add("comments");
+
+  displayComments(comments, commentList);
   postContent.appendChild(comments);
+};
 
-  let comment = document.createElement("div");
-  comment.classList.add("comment");
-  comments.appendChild(comment);
+let displayComments = (contain, comments) => {
+  comments.forEach((comment) => {
+    let commentContainer = document.createElement("div");
+    commentContainer.classList.add("comment");
 
-  let commentBody = document.createElement("div");
-  commentBody.classList.add("comment-body");
-  let commentInfo = document.createElement("div");
-  commentInfo.classList.add("comment-info");
-  comment.append(commentBody, commentInfo);
+    let commentBody = document.createElement("div");
+    commentBody.classList.add("comment-body");
+    commentBody.innerHTML = comment.body;
+    commentContainer.appendChild(commentBody);
 
-  postTitle.innerText = title;
-  postInfo.innerText = "by " + pAuthor + " , " + pDate;
+    let commentInfo = document.createElement("div");
+    commentInfo.classList.add("comment-info");
+    commentInfo.innerText = comment.score + " points, " + comment.author;
+    commentContainer.appendChild(commentInfo);
+
+    contain.appendChild(commentContainer);
+  });
 };
 
 let postCreator = () => {
-  console.log(Object.keys(data));
+  resetContent();
+  Object.keys(data).forEach((key) => {
+    let postObject = data[key];
+    let title = postObject.title;
+    let author = postObject.author;
+    // let postPermalink = postObject.permalink;
+    let comments = postObject.comments;
+
+    update(title, author, comments);
+  });
 };
 
 //removes results if they already exist
