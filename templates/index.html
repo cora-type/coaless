@@ -12,10 +12,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="{{url_for('static', filename='styles.css')}}"
-    />
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -54,48 +51,69 @@
       </div>
       <div class="logo">
         <!-- SVG Library -->
-<svg id="logo-svg" class="animate__animated animate__zoomIn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1453.2 297.27" style="width:60%"><path style="fill:none; stroke-width: 10px; stroke-opacity: 1; stroke-linejoin: round; stroke: white;"  d="M306.72 83.48c-54.27 0-99.69 44.22-99.69 102.11v1.61c-2.81 40.2-36.98 77.99-92.46 77.99-48.24 0-86.03-36.18-86.03-88.44 0-44.22 25.73-87.23 73.97-88.04 38.19-.8 71.55 31.76 84.02 76.38v-61.91c-22.91-14.87-51.86-20.1-80-19.7-58.29.8-101.7 45.02-101.7 105.32 0 58.69 45.43 102.11 100.9 102.11 53.87 0 97.68-40.2 101.7-95.27 5.23 53.46 50.25 95.27 102.91 95.27 54.27 0 99.69-44.22 99.69-102.11 0-58.28-47.43-105.32-103.31-105.32zm16.08 201c-49.44 0-90.05-61.1-90.05-115.37 0-40.2 20.5-79.19 61.5-79.19 49.85 0 90.05 62.31 90.05 115.37 0 40.2-20.5 79.19-61.5 79.19zM584.1 246.69c-1.21-3.21-41.81-114.57-49.85-132.66-11.25-26.12-29.34-30.55-41.81-30.55-11.66 0-26.53 4.02-35.38 10.85l.8.4c17.69-5.23 37.79-2.81 47.44 14.07 9.25 15.68 33.37 86.43 51.86 140.7-12.06 18.09-32.56 25.73-51.46 25.33-37.79-.4-57.89-26.53-57.89-65.93 0-44.22 36.58-77.58 54.67-90.45-51.05 23.32-81.6 59.9-81.6 104.52 0 40.6 30.15 67.94 70.75 67.94 33.37-.4 51.46-14.07 66.73-38.19l11.66 34.97h37.39c-8.04-6.43-14.07-17.68-23.31-41zM645.61 217.35V6.3L603 27.61v1.61c12.46 10.05 19.3 30.15 18.89 60.3l-2.41 198.18h45.02c-10.85-9.25-18.89-33.37-18.89-70.35zM781.08 265.18c-45.02 0-83.21-34.57-83.21-84.82 0-7.24.4-13.67 1.61-20.1h155.17c0-45.43-32.16-76.78-78.39-76.78-57.08 0-104.12 44.22-104.12 104.92 0 58.69 45.42 102.51 101.3 102.51 55.48 0 100.9-45.42 101.7-99.29h-.4c-6.83 41.41-41.8 73.56-93.66 73.56zm-8.04-177.27c26.93 0 49.04 13.27 49.04 34.57 0 16.88-11.66 33.77-55.88 33.77h-65.93c8.05-42.62 38.6-68.34 72.77-68.34zM959.57 170.72c-28.14-14.07-53.06-22.51-54.67-47.44-1.61-22.11 20.9-35.38 44.62-35.38 35.38 0 51.86 27.74 67.94 65.93h.8l-3.22-57.08c-13.67-6.43-30.15-13.27-56.28-13.27-45.42 0-75.57 18.09-73.97 52.66 1.61 32.16 32.16 45.83 63.11 61.5 29.35 14.87 58.29 25.33 58.69 49.85.4 23.72-19.29 38.19-49.44 38.99-21.71.4-49.45-11.26-72.36-69.95h-.8l3.22 62.71c16.48 5.63 36.98 11.66 66.73 11.66 42.21 0 78.79-22.91 75.17-59.09-3.21-30.54-36.18-44.21-69.54-61.09zM1444.77 191.62c-6.83 41.41-41.81 73.56-93.66 73.56-45.02 0-83.21-34.57-83.21-84.82 0-7.24.4-13.67 1.61-20.1h155.17c0-45.43-32.16-76.78-78.39-76.78-56.68 0-103.31 43.82-104.12 103.71-2.81 40.2-36.98 77.99-92.46 77.99-48.24 0-86.03-36.18-86.03-88.44 0-44.22 25.73-87.23 73.97-88.04 38.19-.8 71.55 31.76 84.02 76.38v-61.91c-22.91-14.87-51.86-20.1-80-19.7-58.29.8-101.7 45.02-101.7 105.32 0 58.69 45.42 102.11 100.9 102.11 53.47 0 96.88-39.4 101.71-93.66 4.42 54.27 47.84 93.66 100.9 93.66 55.48 0 100.9-45.42 101.7-99.29h-.41zm-101.7-103.71c26.93 0 49.04 12.86 49.04 34.57 0 16.88-11.66 33.77-55.88 33.77h-65.93c8.05-42.62 38.6-68.34 72.77-68.34z"/></svg>
-        <div class="logo-for animate__animated animate__fadeIn animate__delay 2s">for reddit</div>
+        <svg
+          id="logo-svg"
+          class="animate__animated animate__zoomIn"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1453.2 297.27"
+          style="width: 60%"
+        >
+          <path
+            style="
+              fill: none;
+              stroke-width: 10px;
+              stroke-opacity: 1;
+              stroke-linejoin: round;
+              stroke: white;
+            "
+            d="M306.72 83.48c-54.27 0-99.69 44.22-99.69 102.11v1.61c-2.81 40.2-36.98 77.99-92.46 77.99-48.24 0-86.03-36.18-86.03-88.44 0-44.22 25.73-87.23 73.97-88.04 38.19-.8 71.55 31.76 84.02 76.38v-61.91c-22.91-14.87-51.86-20.1-80-19.7-58.29.8-101.7 45.02-101.7 105.32 0 58.69 45.43 102.11 100.9 102.11 53.87 0 97.68-40.2 101.7-95.27 5.23 53.46 50.25 95.27 102.91 95.27 54.27 0 99.69-44.22 99.69-102.11 0-58.28-47.43-105.32-103.31-105.32zm16.08 201c-49.44 0-90.05-61.1-90.05-115.37 0-40.2 20.5-79.19 61.5-79.19 49.85 0 90.05 62.31 90.05 115.37 0 40.2-20.5 79.19-61.5 79.19zM584.1 246.69c-1.21-3.21-41.81-114.57-49.85-132.66-11.25-26.12-29.34-30.55-41.81-30.55-11.66 0-26.53 4.02-35.38 10.85l.8.4c17.69-5.23 37.79-2.81 47.44 14.07 9.25 15.68 33.37 86.43 51.86 140.7-12.06 18.09-32.56 25.73-51.46 25.33-37.79-.4-57.89-26.53-57.89-65.93 0-44.22 36.58-77.58 54.67-90.45-51.05 23.32-81.6 59.9-81.6 104.52 0 40.6 30.15 67.94 70.75 67.94 33.37-.4 51.46-14.07 66.73-38.19l11.66 34.97h37.39c-8.04-6.43-14.07-17.68-23.31-41zM645.61 217.35V6.3L603 27.61v1.61c12.46 10.05 19.3 30.15 18.89 60.3l-2.41 198.18h45.02c-10.85-9.25-18.89-33.37-18.89-70.35zM781.08 265.18c-45.02 0-83.21-34.57-83.21-84.82 0-7.24.4-13.67 1.61-20.1h155.17c0-45.43-32.16-76.78-78.39-76.78-57.08 0-104.12 44.22-104.12 104.92 0 58.69 45.42 102.51 101.3 102.51 55.48 0 100.9-45.42 101.7-99.29h-.4c-6.83 41.41-41.8 73.56-93.66 73.56zm-8.04-177.27c26.93 0 49.04 13.27 49.04 34.57 0 16.88-11.66 33.77-55.88 33.77h-65.93c8.05-42.62 38.6-68.34 72.77-68.34zM959.57 170.72c-28.14-14.07-53.06-22.51-54.67-47.44-1.61-22.11 20.9-35.38 44.62-35.38 35.38 0 51.86 27.74 67.94 65.93h.8l-3.22-57.08c-13.67-6.43-30.15-13.27-56.28-13.27-45.42 0-75.57 18.09-73.97 52.66 1.61 32.16 32.16 45.83 63.11 61.5 29.35 14.87 58.29 25.33 58.69 49.85.4 23.72-19.29 38.19-49.44 38.99-21.71.4-49.45-11.26-72.36-69.95h-.8l3.22 62.71c16.48 5.63 36.98 11.66 66.73 11.66 42.21 0 78.79-22.91 75.17-59.09-3.21-30.54-36.18-44.21-69.54-61.09zM1444.77 191.62c-6.83 41.41-41.81 73.56-93.66 73.56-45.02 0-83.21-34.57-83.21-84.82 0-7.24.4-13.67 1.61-20.1h155.17c0-45.43-32.16-76.78-78.39-76.78-56.68 0-103.31 43.82-104.12 103.71-2.81 40.2-36.98 77.99-92.46 77.99-48.24 0-86.03-36.18-86.03-88.44 0-44.22 25.73-87.23 73.97-88.04 38.19-.8 71.55 31.76 84.02 76.38v-61.91c-22.91-14.87-51.86-20.1-80-19.7-58.29.8-101.7 45.02-101.7 105.32 0 58.69 45.42 102.11 100.9 102.11 53.47 0 96.88-39.4 101.71-93.66 4.42 54.27 47.84 93.66 100.9 93.66 55.48 0 100.9-45.42 101.7-99.29h-.41zm-101.7-103.71c26.93 0 49.04 12.86 49.04 34.57 0 16.88-11.66 33.77-55.88 33.77h-65.93c8.05-42.62 38.6-68.34 72.77-68.34z"
+          />
+        </svg>
+        <div class="logo-for animate__animated animate__fadeIn animate__delay 2s">
+          for reddit
+        </div>
       </div>
     </div>
 
     <div class="results-container">
-
       <article class="post-container">
         <div class="post">
-          <div class="post-title">
-            Best Mattresses $1000 or below?
-          </div>
+          <div class="post-title">Best Mattresses $1000 or below?</div>
           <div class="post-info">
-            <a href="https://www.reddit.com/r/Mattress/comments/ho4lik/best_mattresses_1000_or_below/">by /u/indecisiveok, 1 year ago</a>
+            <a
+              href="https://www.reddit.com/r/Mattress/comments/ho4lik/best_mattresses_1000_or_below/"
+              >by /u/indecisiveok, 1 year ago</a
+            >
           </div>
         </div>
         <div class="post__content">
           <div class="comments">
             <div class="comment">
               <div class="comment-body">
-            I've never been a big proponent of suicide bombing, but the mattress
-          industry is changing my mind. The more I look into buying a mattress,
-          the more I want to end my life in a violent way, taking everyone
-          involved in the process along with me. It's like.. if you want to buy
-          a car, or wrench, or sandwich, you can read around and find a product
-          that seems good. But not a mattress. Every mattress company says their
-          stuff uses science and technology and it's amazing and will literally
-          fix your life. Every professional review says good things about the
-          mattress, and better things about the more expensive mattress. Every
-          personal review says bad things about the mattress. Any mattress
-          someone recommends on here, there's a post saying how this mattress
-          will ruin your life. And why are "good" mattresses $5,000? What makes
-          the mattress so expensive? Also, you can never test a mattress as long
-          as you need to. Laying on a mattress for 10 minutes doesn't tell you
-          how it'll be in 8 months. God damn. I want to buy a mattress for
-          around 1k too. But at this point I think I'll just find an old one
-          covered in blood and slime behind a dumpster and use that. Who cares.
-          Buying a new mattress has been the single worst experience of buying a
-          new anything in my entire life.
+                I've never been a big proponent of suicide bombing, but the mattress
+                industry is changing my mind. The more I look into buying a mattress, the
+                more I want to end my life in a violent way, taking everyone involved in
+                the process along with me. It's like.. if you want to buy a car, or
+                wrench, or sandwich, you can read around and find a product that seems
+                good. But not a mattress. Every mattress company says their stuff uses
+                science and technology and it's amazing and will literally fix your life.
+                Every professional review says good things about the mattress, and better
+                things about the more expensive mattress. Every personal review says bad
+                things about the mattress. Any mattress someone recommends on here,
+                there's a post saying how this mattress will ruin your life. And why are
+                "good" mattresses $5,000? What makes the mattress so expensive? Also, you
+                can never test a mattress as long as you need to. Laying on a mattress for
+                10 minutes doesn't tell you how it'll be in 8 months. God damn. I want to
+                buy a mattress for around 1k too. But at this point I think I'll just find
+                an old one covered in blood and slime behind a dumpster and use that. Who
+                cares. Buying a new mattress has been the single worst experience of
+                buying a new anything in my entire life.
               </div>
               <div class="comment-info">
-                <a href="https://www.reddit.com/r/Mattress/comments/ho4lik/best_mattresses_1000_or_below/fxftajc/">113 points, /u/plumpfish</a>
+                <a
+                  href="https://www.reddit.com/r/Mattress/comments/ho4lik/best_mattresses_1000_or_below/fxftajc/"
+                  >113 points, /u/plumpfish</a
+                >
               </div>
             </div>
           </div>
@@ -107,42 +125,22 @@
       <div></div>
     </div>
     <div class="footer">
-      powered by Google x Reddit </span>
+      powered by Google x Reddit
+
+      <div class="github">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path
+            style="fill: white"
+            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+          />
+          <a href="https://github.com/jacarina/redview"></a>
+        </svg>
+      </div>
     </div>
   </body>
 </html>
-
-<!-- <div class="card">
-        <div class="comment">
-          I've never been a big proponent of suicide bombing, but the mattress
-          industry is changing my mind. The more I look into buying a mattress,
-          the more I want to end my life in a violent way, taking everyone
-          involved in the process along with me. It's like.. if you want to buy
-          a car, or wrench, or sandwich, you can read around and find a product
-          that seems good. But not a mattress. Every mattress company says their
-          stuff uses science and technology and it's amazing and will literally
-          fix your life. Every professional review says good things about the
-          mattress, and better things about the more expensive mattress. Every
-          personal review says bad things about the mattress. Any mattress
-          someone recommends on here, there's a post saying how this mattress
-          will ruin your life. And why are "good" mattresses $5,000? What makes
-          the mattress so expensive? Also, you can never test a mattress as long
-          as you need to. Laying on a mattress for 10 minutes doesn't tell you
-          how it'll be in 8 months. God damn. I want to buy a mattress for
-          around 1k too. But at this point I think I'll just find an old one
-          covered in blood and slime behind a dumpster and use that. Who cares.
-          Buying a new mattress has been the single worst experience of buying a
-          new anything in my entire life.
-        </div>
-        <div class="metadata">
-          <div class="data">
-            <a
-              href="https://www.reddit.com/r/Mattress/comments/ho4lik/best_mattresses_1000_or_below/fxftajc/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >by /u/PlumpFish in <u>'best mattresses 1000 or below'</u>
-              <span class="pointer">65</span></a
-            >
-          </div>
-        </div>
-      </div> -->

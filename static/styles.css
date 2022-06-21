@@ -30,6 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+
 #search-query {
   height: 30px;
   width: 300px;
@@ -85,8 +86,9 @@ a:hover {
 .footer {
   display: flex;
   align-items: center;
-  padding-left: 25px;
+  padding: 20px;
   grid-area: 4/1/5/4;
+  justify-content: space-between;
 }
 
 .logo-for {
