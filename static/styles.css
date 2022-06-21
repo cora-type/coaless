@@ -220,7 +220,7 @@ a:hover {
 }
 
 .post__content {
-  border-top: 2px solid #fff;
+  border-top: 1px solid #bbb;
   display: grid;
   /* grid-template-columns: 1fr 4fr; */
   grid-gap: 10px;

@@ -41,7 +41,7 @@ def praw_comments(submission, dict, counter): #should return a list of objects
 
     post_object = {}
     post_object['title'] = post.title #title from submission object
-    post_object['permalink'] = post.permalink #link to comment
+    post_object['permalink'] = post.url #link to comment
     post_object['author'] = str(post.author)
     ts = datetime.datetime.fromtimestamp(post.created_utc)
     r = ts.strftime('%m-%d-%y')

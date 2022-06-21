@@ -54,6 +54,7 @@ let update = (title, author, commentList, date, permalink) => {
   let postInfo = document.createElement("div");
   postInfo.classList.add("post-info");
   let link = document.createElement("a");
+  link.setAttribute("target", "_blank");
   link.href = permalink;
   link.innerHTML = "by " + author + ", " + date;
   postInfo.appendChild(link);
@@ -86,7 +87,12 @@ let displayComments = (contain, comments) => {
 
     let commentInfo = document.createElement("div");
     commentInfo.classList.add("comment-info");
-    commentInfo.innerText = comment.score + " points, " + comment.author;
+    // commentInfo.innerText = comment.score + " points, " + comment.author;
+    let link = document.createElement("a");
+    link.setAttribute("target", "_blank");
+    link.href = "www.reddit.com/" + comment.permalink;
+    link.innerHTML = comment.score + " points, " + comment.author;
+    commentInfo.appendChild(link);
     commentContainer.appendChild(commentInfo);
 
     contain.appendChild(commentContainer);
