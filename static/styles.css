@@ -67,7 +67,7 @@ body {
 }
 
 a {
-  color: rgb(61, 93, 60);
+  color: rgb(160, 191, 159);
   text-decoration: none;
 }
 
@@ -243,8 +243,7 @@ p {
 
 .post-info {
   font-weight: 100;
-  color: lightgray;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .comment-info {

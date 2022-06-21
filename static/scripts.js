@@ -38,7 +38,7 @@ searchBar.addEventListener("keyup", function (e) {
 });
 
 // Creates the actual post that is appended to the display
-let update = (title, author, commentList, date) => {
+let update = (title, author, commentList, date, permalink) => {
   let article = document.createElement("article");
   article.classList.add("post-container");
   container.appendChild(article);
@@ -54,7 +54,10 @@ let update = (title, author, commentList, date) => {
   let postInfo = document.createElement("div");
   postInfo.classList.add("post-info");
   // postInfo.innerText = "by " + author + ", " + "3 months ago (date fns)";
-  postInfo.innerText = "by " + author + ", " + date;
+  let link = document.createElement("a");
+  link.href = permalink;
+  link.innerHTML = "by " + author + ", " + date;
+  postInfo.appendChild(link);
 
   post.append(postTitle, postInfo);
 
@@ -99,10 +102,10 @@ let postCreator = () => {
     let title = postObject.title;
     let author = postObject.author;
     let date = postObject.date;
-    // let postPermalink = postObject.permalink;
+    let permalink = postObject.permalink;
     let comments = postObject.comments;
 
-    update(title, author, comments, date);
+    update(title, author, comments, date, permalink);
   });
 };
 
