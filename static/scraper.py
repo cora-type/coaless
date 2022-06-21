@@ -1,6 +1,6 @@
 from types import new_class
 from bs4 import BeautifulSoup
-import praw, json, re, requests
+import praw, json, re, requests, datetime
 
 #grabs top 10 links from search query(t) and returns JSON
 def link_scraper(t):
@@ -14,7 +14,7 @@ def link_scraper(t):
     soup_link = BeautifulSoup(requests_results.content, "html.parser")
     links = soup_link.find_all("a")
 
-    #scrapes the reddit URL's from google search results and appends to list a
+    #scrapes the reddit URL's from google search results
     counter = 0
     alpha = {}
     for link in links:
@@ -43,6 +43,9 @@ def praw_comments(submission, dict, counter): #should return a list of objects
     post_object['title'] = post.title #title from submission object within the comment object
     post_object['permalink'] = post.permalink #link to comment
     post_object['author'] = str(post.author)
+    ts = datetime.datetime.fromtimestamp(post.created_utc)
+    r = ts.strftime('%Y-%m-%d')
+    post_object['date'] = r
 
     for comment in post.comments:
         comments_list.append(comment_creator(comment))
@@ -61,6 +64,7 @@ def comment_creator(comment):
         obj['body'] = comment.body_html
         obj['score'] = comment.score
         obj['permalink'] = comment.permalink
+        ts = datetime.datetime.fromtimestamp(comment.created_utc)
+        r = ts.strftime('%Y-%m-%d')
+        obj['date'] = r
     return obj
-
-print(link_scraper('whats the best vaccuum'))

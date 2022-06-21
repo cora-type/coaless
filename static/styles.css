@@ -159,7 +159,7 @@ a:hover {
 }
 .lds-ripple div {
   position: absolute;
-  border: 4px solid rgb(0, 0, 0);
+  border: 4px solid rgb(255, 255, 255);
   opacity: 1;
   border-radius: 50%;
   animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
@@ -207,13 +207,13 @@ a:hover {
 }
 
 .post {
-  font-size: 1vw;
+  font-size: 20px;
   font-weight: 600;
   padding: 10px 0;
   position: sticky;
   top: 0;
   text-align: center;
-  height: calc(9vw + 10px);
+  height: calc(3vw + 10px);
   transition: all 0.2s ease-in;
 }
 
@@ -222,15 +222,7 @@ a:hover {
   display: grid;
   /* grid-template-columns: 1fr 4fr; */
   grid-gap: 10px;
-  padding: 15px 0;
-}
-
-.post__content .title {
-  font-weight: 600;
-}
-
-.post__content .story {
-  line-height: 26px;
+  padding: 25px;
 }
 
 @media (max-width: 600px) {
@@ -263,4 +255,5 @@ p {
 
 .comment {
   display: grid;
+  border-bottom: 1px solid lightcoral;
 }

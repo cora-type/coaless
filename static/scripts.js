@@ -38,7 +38,7 @@ searchBar.addEventListener("keyup", function (e) {
 });
 
 // Creates the actual post that is appended to the display
-let update = (title, author, commentList) => {
+let update = (title, author, commentList, date) => {
   let article = document.createElement("article");
   article.classList.add("post-container");
   container.appendChild(article);
@@ -53,7 +53,9 @@ let update = (title, author, commentList) => {
 
   let postInfo = document.createElement("div");
   postInfo.classList.add("post-info");
-  postInfo.innerText = "by " + author + ", " + "3 months ago (date fns)";
+  // postInfo.innerText = "by " + author + ", " + "3 months ago (date fns)";
+  postInfo.innerText = "by " + author + ", " + date;
+
   post.append(postTitle, postInfo);
 
   let postContent = document.createElement("div");
@@ -65,6 +67,8 @@ let update = (title, author, commentList) => {
 
   displayComments(comments, commentList);
   postContent.appendChild(comments);
+
+  console.log(date);
 };
 
 // Go through a list of comments and create a comment element, append to post container
@@ -91,13 +95,14 @@ let displayComments = (contain, comments) => {
 let postCreator = () => {
   resetContent();
   Object.keys(data).forEach((key) => {
-    let postObject = data[key];
+    let postObject = data[key]; // Access current post object
     let title = postObject.title;
     let author = postObject.author;
+    let date = postObject.date;
     // let postPermalink = postObject.permalink;
     let comments = postObject.comments;
 
-    update(title, author, comments);
+    update(title, author, comments, date);
   });
 };
 
