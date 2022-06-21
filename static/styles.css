@@ -213,7 +213,7 @@ a:hover {
   position: sticky;
   top: 0;
   text-align: center;
-  height: calc(3vw + 10px);
+  height: calc(4vw + 10px);
   transition: all 0.2s ease-in;
 }
 
@@ -222,7 +222,8 @@ a:hover {
   display: grid;
   /* grid-template-columns: 1fr 4fr; */
   grid-gap: 10px;
-  padding: 25px;
+  padding: 5px;
+  padding-left: 8px;
 }
 
 @media (max-width: 600px) {
@@ -254,5 +255,10 @@ p {
 
 .comment {
   display: grid;
-  border-bottom: 1px solid lightcoral;
+  border-top: 1px solid rgb(250, 181, 181);
+  padding: 9px;
+}
+
+.comment:first-child {
+  border-top: none;
 }

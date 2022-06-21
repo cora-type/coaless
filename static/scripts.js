@@ -53,7 +53,6 @@ let update = (title, author, commentList, date, permalink) => {
 
   let postInfo = document.createElement("div");
   postInfo.classList.add("post-info");
-  // postInfo.innerText = "by " + author + ", " + "3 months ago (date fns)";
   let link = document.createElement("a");
   link.href = permalink;
   link.innerHTML = "by " + author + ", " + date;

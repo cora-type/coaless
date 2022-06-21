@@ -1,6 +1,6 @@
 from types import new_class
 from bs4 import BeautifulSoup
-import praw, json, re, requests, datetime
+import praw, requests, datetime, time
 
 #grabs top 10 links from search query(t) and returns JSON
 def link_scraper(t):
@@ -44,27 +44,27 @@ def praw_comments(submission, dict, counter): #should return a list of objects
     post_object['permalink'] = post.permalink #link to comment
     post_object['author'] = str(post.author)
     ts = datetime.datetime.fromtimestamp(post.created_utc)
-    r = ts.strftime('%Y-%m-%d')
+    r = ts.strftime('%m-%d-%y')
     post_object['date'] = r
 
     for comment in post.comments:
-        comments_list.append(comment_creator(comment))
+        if comment.author == 'AutoModerator':
+            pass
+        elif comment.body == '[deleted]' or comment.body =='[removed]' or comment.body == 'undefined':
+            pass
+        else: 
+            comments_list.append(comment_creator(comment))
     post_object['comments'] = comments_list
     dict[counter] = post_object #create dictionary k/v
 
 
 def comment_creator(comment):
     obj = {}
-    if comment.author == 'AutoModerator':
-        pass
-    elif comment.body == '[deleted]' or comment.body =='[removed]':
-        pass
-    else:
-        obj['author'] = str(comment.author)
-        obj['body'] = comment.body_html
-        obj['score'] = comment.score
-        obj['permalink'] = comment.permalink
-        ts = datetime.datetime.fromtimestamp(comment.created_utc)
-        r = ts.strftime('%Y-%m-%d')
-        obj['date'] = r
+    obj['author'] = str(comment.author)
+    obj['body'] = comment.body_html
+    obj['score'] = comment.score
+    obj['permalink'] = comment.permalink
+    ts = datetime.datetime.fromtimestamp(comment.created_utc)
+    r = ts.strftime('%Y-%m-%d')
+    obj['date'] = r
     return obj
