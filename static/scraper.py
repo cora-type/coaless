@@ -2,7 +2,7 @@ from types import new_class
 from bs4 import BeautifulSoup
 import praw, requests, datetime, time
 
-#grabs top 10 links from search query(t) and returns JSON
+#grabs top 10 links from search query(t)
 def link_scraper(t):
     query = t
 
@@ -16,19 +16,19 @@ def link_scraper(t):
 
     #scrapes the reddit URL's from google search results
     counter = 0
-    alpha = {}
+    data = {}
     for link in links:
         link_href = link.get('href')
         if "url?q=" in link_href and not "webcache" in link_href:
             title = link.find_all('h3')
             if len(title) > 0:
                 try:
-                    praw_comments(link.get('href').split("?q=")[1].split("&sa=U")[0], alpha, counter)
+                    praw_comments(link.get('href').split("?q=")[1].split("&sa=U")[0], data, counter)
                     counter += 1
                 except:
                     print('got an invalid link')
                     continue
-    return alpha           
+    return data           
 
 
 def praw_comments(submission, dict, counter): #should return a list of objects
@@ -39,8 +39,8 @@ def praw_comments(submission, dict, counter): #should return a list of objects
 
     post = reddit.submission(url=submission)
 
-    post_object = {} # put this here
-    post_object['title'] = post.title #title from submission object within the comment object
+    post_object = {}
+    post_object['title'] = post.title #title from submission object
     post_object['permalink'] = post.permalink #link to comment
     post_object['author'] = str(post.author)
     ts = datetime.datetime.fromtimestamp(post.created_utc)
