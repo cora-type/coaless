@@ -7,4 +7,6 @@ A web app that simply coalesces the comments in the top searches of a reddit-goo
 
 Known Issues
 
-PRAW is slow, so the app takes a few seconds to grab the results. Need to find a way to make it faster. Worst case run time so far has been 12 seconds :o
+- PRAW is slow, so the app takes a few seconds to grab the results. Need to find a way to make it faster. Worst case run time so far has been 12 seconds :o
+
+- Clicking a comment source link doesn't work (as a workaround for now just click the post source link)
