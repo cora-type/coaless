@@ -13,7 +13,7 @@ let sendData = () => {
     ripple.style.visibility = "visible";
     $.ajax({
       type: "POST",
-      url: "/search", // url to the function
+      url: "/search", // URL to the function
       data: {
         name: $("#search-query").val(), // value of the input text
       },
