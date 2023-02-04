@@ -1,5 +1,5 @@
 # coaless
-https://coaless.herokuapp.com
+https://coaless.rj.r.appspot.com/
 
 Description
 
